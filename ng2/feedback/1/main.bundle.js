@@ -515,6 +515,7 @@ var PageNotFoundComponent = (function () {
         this.router = router;
     }
     PageNotFoundComponent.prototype.ngOnInit = function () {
+        this.checkAgreeState();
     };
     PageNotFoundComponent.prototype.checkAgreeState = function () {
         var _this = this;
