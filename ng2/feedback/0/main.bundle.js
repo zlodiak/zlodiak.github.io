@@ -795,7 +795,8 @@ var Config = (function () {
     return Config;
 }());
 
-Config.host = '';
+Config.host = 'https://zlodiak.github.io/ng2/feedback/0/';
+//static host = '../';
 Config.author = 'Sergey Kalinin';
 Config.createdDate = '2017';
 //# sourceMappingURL=config.js.map
@@ -1431,6 +1432,7 @@ var _a, _b;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__("../../../../../src/app/config.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1443,13 +1445,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var AuthService = (function () {
     function AuthService(http) {
         this.http = http;
     }
     ;
     AuthService.prototype.getUsers = function () {
-        return this.http.get('../assets/json/users.json');
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_2__config__["a" /* Config */].host + 'assets/json/users.json');
     };
     ;
     return AuthService;
