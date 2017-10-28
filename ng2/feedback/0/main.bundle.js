@@ -1545,6 +1545,7 @@ DateService = __decorate([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__("../../../../../src/app/config.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FeedbackService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1555,6 +1556,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 var FeedbackService = (function () {
@@ -1573,7 +1575,7 @@ var FeedbackService = (function () {
     };
     ;
     FeedbackService.prototype.getQuestions = function () {
-        return this.http.get('../assets/json/feedback.json');
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_2__config__["a" /* Config */].host + 'assets/json/feedback.json');
     };
     ;
     return FeedbackService;
@@ -1718,6 +1720,7 @@ QuestionsService = __decorate([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__("../../../../../src/app/config.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SpeakersService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1730,13 +1733,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var SpeakersService = (function () {
     function SpeakersService(http) {
         this.http = http;
     }
     ;
     SpeakersService.prototype.getSpeakers = function () {
-        var result = this.http.get('../assets/json/speakers.json');
+        var result = this.http.get(__WEBPACK_IMPORTED_MODULE_2__config__["a" /* Config */].host + 'assets/json/speakers.json');
         return result;
     };
     ;
