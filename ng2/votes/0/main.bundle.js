@@ -502,6 +502,25 @@ var VoteComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/config.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Config; });
+var Config = (function () {
+    function Config() {
+    }
+    Config.host = 'https://zlodiak.github.io/ng2/votes/0/';
+    //static host = '../';
+    Config.author = 'Sergey Kalinin';
+    Config.createdDate = '2017';
+    return Config;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/dialogs/info-dialog/info-dialog.component.html":
 /***/ (function(module, exports) {
 
@@ -717,6 +736,7 @@ var ResultsService = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VoteService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__("../../../../../src/app/config.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -728,13 +748,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var VoteService = (function () {
     function VoteService(http) {
         this.http = http;
     }
     ;
     VoteService.prototype.getVotes = function () {
-        return this.http.get('../assets/json/feedback_0.json');
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_2__config__["a" /* Config */].host + 'assets/json/feedback_0.json');
     };
     ;
     VoteService = __decorate([
