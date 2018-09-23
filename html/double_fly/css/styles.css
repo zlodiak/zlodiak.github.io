@@ -1,0 +1,58 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  background: orange;  
+  min-width: 1300px;
+  overflow: auto;
+}
+
+.github {
+	position: fixed;
+	z-index: 999;
+}
+
+#game {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: 'orange';
+	width: 100vw;
+	height: 100vh;
+	min-width: 1200px;
+	min-height: 800px;
+}
+
+.field {
+	margin: 30px auto;
+	background: #000;
+	position: relative;
+}
+
+.fly {
+	position: absolute;	
+}
+
+	.flyLeft {
+		left: 0;
+	}
+
+	.flyRight {
+		right: 0;
+	}
+
+.panel {
+	position: absolute;
+	width: 100px;
+	padding: 10px;
+	border: 1px solid red;
+	background: #000;
+	overflow: hidden;
+	color: #fff;
+}
+
+.rocket {
+	position: absolute;
+}
+
