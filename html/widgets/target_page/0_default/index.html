@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang=ru>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+		<link href="css/styles.css" rel="stylesheet">
+	</head>
+	
+	<body>
+		<div id="happyWidgetParent"></div>
+
+		<script> 
+		  function showContent(link) {
+	      var cont = document.getElementById('happyWidgetParent');
+	      var http = createRequestObject();
+	      if (http) {
+          http.open('get', link);
+          http.onreadystatechange = function() {
+            if (http.readyState == 4) {
+          		var resp = http.responseText;
+          		var repsWrapEl = document.createElement('div');
+
+          		var startPos = resp.indexOf('<body>') + 6;
+          		var endPos = resp.indexOf('</body>');
+          		var respBodyEl = resp.substring(startPos, endPos);
+
+          		repsWrapEl.innerHTML = respBodyEl;
+          		console.log('repsWrapEl', repsWrapEl);
+
+							const scripts = repsWrapEl.querySelectorAll('#scripts script');
+							if (scripts) {
+								Array.apply(null, scripts).forEach(script => {
+									const purePath = script.src.replace(location.href, '');
+									const actualPath = link + purePath;
+									script.src = actualPath;
+								});
+							}
+
+							const styles = repsWrapEl.querySelectorAll('#styles link');
+							if (styles) {
+								Array.apply(null, styles).forEach(style => {
+									const purePath = style.href.replace(location.href, '');
+									const actualPath = link + purePath;
+									style.href = actualPath;
+								});
+							}
+
+              cont.appendChild(repsWrapEl);
+            }
+          }
+          http.send(null);
+	      }
+		  } 
+    
+		  function createRequestObject() {
+		      try {
+		          return new XMLHttpRequest()
+		      } catch (e) {
+		          try {
+		              return new ActiveXObject('Msxml2.XMLHTTP')
+		          } catch (e) {
+		              try {
+		                  return new ActiveXObject('Microsoft.XMLHTTP')
+		              } catch (e) {
+		                  return null;
+		              }
+		          }
+		      }
+		  }    
+
+		  showContent('http://localhost/WIDGETS/body_widget/0_default/');   
+		</script>
+	</body>
+</html>
